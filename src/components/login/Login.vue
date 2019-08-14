@@ -87,31 +87,27 @@ export default {
   methods: {
     login() {
       const vm = this;
+      var email = vm.userEmail
+      var password = vm.password
 
-      if (!vm.userEmail || !vm.password) {
-
+      if (!email || !password) {
         vm.result = "Email and Password can't be null.";
         vm.showResult = true;
 
         return;
       }
 
-    //   var params = {
-    //     email: vm.userEmail,
-    //     password: vm.password,
-    //   }
-      vm.$router.push({ name: 'Dashboard' });
-      //  vm.axios.post('http://192.168.2.33:8080/api/v1/users/login', params).then((response) => {
-      //    console.log(response.data);
-      //       console.log('Everything is awesome.');
-      //      vm.$router.push({ name: 'Dashboard' });
+      this.$store.dispatch('login',{ email, password}).then((response) =>{
+        console.log('Everything is awesome.');
+        vm.$router.push({ name: 'Dashboard' });
+      }).catch((error) => {
+        console.log(error)
+        console.warn('Not ola man :(');
+        vm.error = true;
+        vm.result = "Email or Password is incorrect.";
+        vm.showResult = true;
 
-      //   }).catch((error) => {
-      //       console.warn('Not good man :(');
-      //       vm.error = true;
-      //       vm.result = "Email or Password is incorrect.";
-      //       vm.showResult = true;
-      //   })
+      })
     }
   }
 }
