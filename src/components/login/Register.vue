@@ -15,18 +15,21 @@
                 <v-form>
                    <v-text-field
                     name="first_name"
+                    v-model="first_name"
                     label="First Name*"
                     type="text"
                     :error="error"
                     :rules="[rules.required]"/>
                    <v-text-field
                     name="last_name"
+                    v-model="last_name"
                     label="Last Name*"
                     type="text"
                     :error="error"
                     :rules="[rules.required]"/>
                   <v-text-field
                     name="email"
+                    v-model="email"
                     label="Email*"
                     type="text"
                     :error="error"
@@ -34,6 +37,7 @@
                   <v-text-field
                     :type="hidePassword ? 'password' : 'text'"
                     name="password"
+                    v-model="password"
                     label="Password*"
                     id="password"
                     :rules="[rules.required]"
@@ -52,7 +56,7 @@
               </v-card-text>
               <v-card-actions >
                 <v-spacer></v-spacer>
-                <v-btn class="ma-2" @click="login" small outlined color="primary" >Register</v-btn>
+                <v-btn class="ma-2" @click="register" small outlined color="primary" >Register</v-btn>
               </v-card-actions>
               <v-divider></v-divider>
               <v-layout row>
@@ -92,46 +96,43 @@ export default {
   data() {
     return {
       loading: false,
-      userEmail: 'vishal.ingole3@gmail.com',
-      password: 'test@1234',
       hidePassword: true,
       error: false,
       showResult: false,
       result: '',
       rules: {
         required: value => !!value || 'Required.'
-      }
+      },
+      first_name: '',
+      last_name: '',
+      email: '',
+      password: '',
+      confirm_password: ''
     }
   },
 
   methods: {
-    login() {
+    register() {
       const vm = this;
+      var firstName = vm.first_name;
+      var lastName = vm.last_name;
+      var email = vm.email;
+      var password = vm.password;
+      var confirmPassword = vm.confirm_password;
 
-      if (!vm.userEmail || !vm.password) {
-
-        vm.result = "Email and Password can't be null.";
+      this.$store.dispatch('register',{ email, password, firstName, lastName }).then((response) => {
+        console.log('Everything is awesome.');
+        console.log(response)
+        vm.$router.push({ name: 'Dashboard' });
+      }).catch((error) => {
+        console.log(error)
+        console.warn('Not ola man :(');
+        vm.error = true;
+        vm.result = "Email or Password is incorrect.";
         vm.showResult = true;
 
-        return;
-      }
+      })
 
-      var params = {
-        email: vm.userEmail,
-        password: vm.password,
-      }
-      vm.$router.push({ name: 'Login' });
-      //  vm.axios.post('http://192.168.2.33:8080/api/v1/users/login', params).then((response) => {
-      //    console.log(response.data);
-      //       console.log('Everything is awesome.');
-      //      vm.$router.push({ name: 'Dashboard' });
-
-      //   }).catch((error) => {
-      //       console.warn('Not good man :(');
-      //       vm.error = true;
-      //       vm.result = "Email or Password is incorrect.";
-      //       vm.showResult = true;
-      //   })
     }
   }
 }

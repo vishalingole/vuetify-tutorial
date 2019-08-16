@@ -7,7 +7,7 @@
       >
         <v-list-item>
           <v-list-item-avatar>
-            <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
+            <v-img src="https://lh3.googleusercontent.com/-wKWbeB_VoX0/WHdEeqb_yPI/AAAAAAAAAZI/Wo-d53turz8V9juFmAUUl7UlI5x144XjwCEwYBhgL/w140-h139-p/IMG_9049%2B-%2BUG%25281%2529.JPG"></v-img>
           </v-list-item-avatar>
 
           <v-list-item-title>Vishal Ingole</v-list-item-title>
@@ -48,6 +48,7 @@ export default {
     return {
       drawer: true,
       items: [
+        { title: 'Dashboard', icon: 'dashboard' },
         { title: 'Home', icon: 'mdi-home-city' },
         { title: 'My Account', icon: 'mdi-account' },
         { title: 'Users', icon: 'mdi-account-group-outline' },
@@ -77,12 +78,12 @@ export default {
   color:navy !important;
 }
 .sidebar {
-    background-image: url('@/../../../assets/images/sidebar.jpg');
+    /* background-image: url('@/../../../assets/images/sidebar.jpg'); */
     background-size: cover;
     overflow:hidden;
     background-position: 100%;
-    z-index: 2;
-    color: white;
+    z-index: 0;
+    /* color: white; */
     height: 100%;
     background-repeat: no-repeat !important;
 }

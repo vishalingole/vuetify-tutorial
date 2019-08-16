@@ -29,7 +29,10 @@ export default new Router({
     {
         path: '/register',
         name: 'Register',
-        component: Register
+        component: Register,
+        meta: {
+          allowAnonymous: true
+        }
     },
     {
       path: '/forgot-password',
