@@ -4,7 +4,13 @@
         :mini-variant.sync="mini"
         permanent
         class="sidebar"
+        fixed app
       >
+      <v-toolbar :color="$root.themeColor" class="toolbar">
+      <router-link :to="{ name: 'Dashboard' }">
+        <!-- <img src="@/assets/logo.jpg" width="100px"> -->
+      </router-link>
+    </v-toolbar>
         <v-list-item>
           <v-list-item-avatar>
             <v-img src="https://lh3.googleusercontent.com/-wKWbeB_VoX0/WHdEeqb_yPI/AAAAAAAAAZI/Wo-d53turz8V9juFmAUUl7UlI5x144XjwCEwYBhgL/w140-h139-p/IMG_9049%2B-%2BUG%25281%2529.JPG"></v-img>
@@ -21,21 +27,21 @@
         </v-list-item>
 
         <v-divider></v-divider>
-
-        <v-list dense>
-          <v-list-item
-            v-for="item in items"
-            :key="item.title"
-            link
-          >
-            <v-list-item-icon>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-icon>
-
-            <v-list-item-content>
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
+        <v-list dense rounded>
+          <v-list-item-group v-model="item" color="primary">
+            <v-list-item
+              v-for="(item, i) in items"
+              :key="i"
+              :to="item.link"
+            >
+              <v-list-item-icon>
+                <v-icon v-text="item.icon"></v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title v-text="item.title"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-item-group>
         </v-list>
       </v-navigation-drawer>
     </template>
@@ -47,13 +53,40 @@ export default {
     data () {
     return {
       drawer: true,
+      item:'',
       items: [
-        { title: 'Dashboard', icon: 'dashboard' },
-        { title: 'Home', icon: 'mdi-home-city' },
-        { title: 'My Account', icon: 'mdi-account' },
-        { title: 'Users', icon: 'mdi-account-group-outline' },
+        {
+                    link: '/dashboard',
+                    title: 'Dashboard',
+                    icon: 'dashboard'
+				},
+				{
+                    title: 'Photo Gallary',
+                    link: '/gallary',
+                    icon: 'album'
+				},
+				{
+                    title: 'Search',
+                    link: '/search',
+                    icon: 'search'
+				},
+				{
+                    title: 'Success Stories',
+                    link: '/success-stories',
+                    icon: 'search'
+        },
+        {
+                    title: 'About Us',
+                    link: '/about-us',
+                    icon: ''
+				},
+				{
+                    title: 'Contact Us',
+                    link: '/contact-us',
+                    icon: 'phone'
+				},
       ],
-      mini: true,
+      mini: false,
     }
   },
     methods: {
@@ -70,13 +103,6 @@ export default {
 </script>
 
 <style scoped>
-.v-list__tile__title a{
-  text-decoration: none;
-  color: black;
-}
-.router-link-active{
-  color:navy !important;
-}
 .sidebar {
     /* background-image: url('@/../../../assets/images/sidebar.jpg'); */
     background-size: cover;
@@ -84,7 +110,7 @@ export default {
     background-position: 100%;
     z-index: 0;
     /* color: white; */
-    height: 100%;
+    /* height: 100%; */
     background-repeat: no-repeat !important;
 }
 </style>

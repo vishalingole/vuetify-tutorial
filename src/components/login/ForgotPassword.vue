@@ -2,8 +2,8 @@
   <v-app id="forgot" >
     <v-content>
       <v-container fluid fill-height>
-        <v-layout align-center justify-center >
-          <v-flex xs12 sm8 md4 lg6>
+        <v-layout align-end justify-end >
+          <v-flex lg4>
             <v-card class="elevation-1 pa-3">
               <v-card-text>
                 <div class="layout column align-center">
@@ -31,14 +31,14 @@
               </v-card-actions>
               <v-divider></v-divider>
               <v-layout row>
-                <v-flex xs8>
+                <v-flex xs6>
                   <v-card-title primary-title>
                     <div>
                       <div class="headline red--text">Can We Help?</div>
                     </div>
                   </v-card-title>
                 </v-flex>
-                <v-flex xs4 align-content-end>
+                <v-flex xs6 align-content-end>
                   <v-card-title primary-title class="green--text">
                     <div>
                       <div><router-link class="green--text loginLinks" to ="/login">Sign In</router-link></div>

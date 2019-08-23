@@ -2,12 +2,12 @@
   <v-app id="login" >
       <v-content>
         <v-container fluid fill-height>
-        <v-layout align-center justify-center >
-          <v-flex xs12 sm8 md4 lg5>
+        <v-layout align-end justify-end >
+          <v-flex xs12 lg4 >
             <v-card class="elevation-1 pa-3">
               <v-card-text>
                 <div class="layout column align-center">
-                  <img src="./../../assets/logo.png" alt="Vue Material Admin" width="250px" >
+                  <img src="./../../assets/logo.jpg" alt="Vue Material Admin" width="250px" >
                   <h2 style="color:black">Welcome To Trex  </h2>
                 </div>
                 <v-form>
@@ -33,18 +33,18 @@
               </v-card-text>
               <v-card-actions >
                 <v-spacer></v-spacer>
-                <v-btn class="ma-2" @click="login" outlined color="primary" >Login</v-btn>
+                <v-btn small class="ma-2" @click="login" outlined color="primary" >Login</v-btn>
               </v-card-actions>
               <v-divider></v-divider>
                <v-layout row>
-                <v-flex xs7>
+                <v-flex xs6>
                   <v-card-title primary-title>
                     <div>
                       <div class="headline red--text">Can We Help?</div>
                     </div>
                   </v-card-title>
                 </v-flex>
-                <v-flex xs5 align-content-end>
+                <v-flex xs6 align-content-end>
                   <v-card-title primary-title class="green--text">
                     <div>
                       <div><router-link class="green--text loginLinks" to="forgot-password">Forgot My Password</router-link></div>
@@ -116,13 +116,11 @@ export default {
 <style scoped lang="css">
   #login {
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    /* content: ""; */
-    /* z-index: 50; */
-    /* background-image: url('@/../../../assets/images/background.jpg'); */
-    /* background: green; */
+    z-index: 1;
+    background-image: url('@/../../../assets/images/maxresdefault.jpg');
     background-size: cover;
     overflow:hidden;
   }

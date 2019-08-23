@@ -2,21 +2,22 @@
   <div>
     <template v-if="!$route.meta.allowAnonymous">
       <v-app >
-     <Header></Header>
-     <sidebar></sidebar>
-    <v-content>
-      <router-view/>
-    </v-content>
-    <Footer></Footer>
-  </v-app>
-    </template>
-    <template v-else>
+        <Header></Header>
+        <sidebar></sidebar>
+
+        <v-content>
+          <router-view/>
+        </v-content>
+        <Footer></Footer>
+      </v-app>
+  </template>
+  <template v-else>
       <transition>
         <keep-alive>
           <router-view></router-view>
         </keep-alive>
       </transition>
-    </template>
+  </template>
   </div>
 </template>
 
@@ -24,11 +25,10 @@
 
 export default {
   name: 'App',
-  components: {
-  },
-  data: () => ({
-    //
-    drawer: true
-  }),
-};
+  data() {
+    return {
+      drawer: true
+    }
+  }
+}
 </script>

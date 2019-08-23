@@ -8,12 +8,14 @@ import Vuex from 'vuex'
 import 'es6-promise/auto'
 import store from './store/store'
 import Axios from 'axios';
+// import Vuetify from 'vuetify/lib';
 
 
+// Vue.use(Vuetify)
 setupComponents(Vue)
 Vue.use(VueRouter)
 Vue.use(Vuex)
-Vue.use(Axios);
+// Vue.use(Axios)
 
 Vue.prototype.$http = Axios
 
@@ -28,5 +30,10 @@ new Vue({
   vuetify,
   router,
   store,
+  data: {
+    themeColor: 'green darken-4',
+    userEmail: 'ashish1.sarode12@infobeans.com',
+    userPassword: 'ashish123'
+  },
   render: h => h(App)
 }).$mount('#app')

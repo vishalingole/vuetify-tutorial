@@ -2,7 +2,7 @@
   <v-app id="register" >
     <v-content>
       <v-container fluid fill-height>
-        <v-layout align-center justify-center >
+        <v-layout align-end justify-end >
           <v-flex xs12 sm8 md4 lg5>
             <v-card class="elevation-1 pa-3">
               <v-card-text>
