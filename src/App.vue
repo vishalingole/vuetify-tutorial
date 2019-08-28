@@ -4,7 +4,6 @@
       <v-app >
         <Header></Header>
         <sidebar></sidebar>
-
         <v-content>
           <router-view/>
         </v-content>

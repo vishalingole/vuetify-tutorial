@@ -63,7 +63,7 @@ export default {
 				{
                     title: 'Photo Gallary',
                     link: '/gallary',
-                    icon: 'album'
+                    icon: 'photo_album'
 				},
 				{
                     title: 'Search',
@@ -73,7 +73,7 @@ export default {
 				{
                     title: 'Success Stories',
                     link: '/success-stories',
-                    icon: 'search'
+                    icon: 'amp_stories'
         },
         {
                     title: 'About Us',

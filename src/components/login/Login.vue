@@ -97,7 +97,7 @@ export default {
         return;
       }
 
-      this.$store.dispatch('login',{ email, password}).then((response) =>{
+      this.$store.dispatch('login',{ email, password}).then((response) => {
         console.log('Everything is awesome.');
         vm.$router.push({ name: 'Dashboard' });
       }).catch((error) => {

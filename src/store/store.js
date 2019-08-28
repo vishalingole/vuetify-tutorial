@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     status: '',
     token: localStorage.getItem('token') || '',
-    user : {}
+    user : {},
+    instagram_token: localStorage.getItem('instagram_token') || ''
   },
   mutations: {
     auth_request(state){
@@ -26,6 +27,7 @@ export default new Vuex.Store({
       state.status = ''
       state.token = ''
       state.user = {}
+      state.instagram_token = ''
     },
   },
   actions: {
@@ -66,6 +68,37 @@ export default new Vuex.Store({
           console.log(err)
           reject(err)
         })
+      })
+    },
+    import_ig({commit}, params) {
+      return new Promise((resolve, reject) => {
+        var token = localStorage.getItem('instagram_token');
+        // axios({url: 'https://api.instagram.com/v1/users/self/media/recent/?access_token=' + params.token, method: 'GET' })
+        // .then(resp => {
+        //   resolve(resp)
+        // })
+        // .catch(err => {
+        //   console.log(err)
+        //   reject(err)
+        // })
+
+        console.log(localStorage.getItem('instagram_token'))
+        console.log(this.$store)
+
+        axios.get('https://api.instagram.com/v1/users/self/media/recent/?access_token='+ params.token)
+        .then(function (response) {
+          // handle success
+          // console.log(response.data.data);
+          resolve(response)
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+          reject(error)
+        })
+        .finally(function () {
+          // always executed
+        });
       })
     }
   },

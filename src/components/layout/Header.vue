@@ -1,11 +1,38 @@
 <template>
-    <div>
-    <v-toolbar>
-        <v-toolbar-title>Trex</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-toolbar-items class="hidden-sm-and-down">
 
-            <v-menu offset-y
+<v-card class="overflow-hidden">
+    <v-app-bar
+      color="#fcb69f"
+      dark
+      src="https://picsum.photos/1920/1080?random"
+      scroll-target="#scrolling-techniques-2"
+      app
+    >
+      <template v-slot:img="{ props }">
+        <v-img
+          v-bind="props"
+          gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+        ></v-img>
+      </template>
+
+      <v-app-bar-nav-icon ></v-app-bar-nav-icon>
+
+      <v-toolbar-title>JodiDaar</v-toolbar-title>
+
+      <div class="flex-grow-1"></div>
+
+      <v-btn icon>
+        <v-icon>search</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>favorite</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>more_vert</v-icon>
+      </v-btn>
+          <v-menu offset-y
              content-class="dropdown-menu"
             transition="slide-y-transition">
             <template v-slot:activator="{ on }">
@@ -30,10 +57,15 @@
                 </v-list-item>
             </v-list>
             </v-menu>
-        </v-toolbar-items>
-    </v-toolbar>
-    </div>
-
+    </v-app-bar>
+    <v-sheet
+      id="scrolling-techniques-2"
+      class="overflow-y-auto"
+      max-height="600"
+    >
+      <!-- <v-container style=""></v-container> -->
+    </v-sheet>
+  </v-card>
 </template>
 
 <script>

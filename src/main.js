@@ -8,6 +8,7 @@ import Vuex from 'vuex'
 import 'es6-promise/auto'
 import store from './store/store'
 import Axios from 'axios';
+import VueCarousel from 'vue-carousel';
 // import Vuetify from 'vuetify/lib';
 
 
@@ -15,6 +16,8 @@ import Axios from 'axios';
 setupComponents(Vue)
 Vue.use(VueRouter)
 Vue.use(Vuex)
+Vue.use(VueCarousel);
+
 // Vue.use(Axios)
 
 Vue.prototype.$http = Axios
@@ -31,7 +34,7 @@ new Vue({
   router,
   store,
   data: {
-    themeColor: 'green darken-4',
+    themeColor: '',
     userEmail: 'ashish1.sarode12@infobeans.com',
     userPassword: 'ashish123'
   },

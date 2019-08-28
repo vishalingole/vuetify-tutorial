@@ -6,6 +6,7 @@ import Register from '@/components/login/Register'
 import ForgotPassword from '@/components/login/ForgotPassword'
 import Profile from '@/components/profile/Profile'
 import Gallary from '@/components/gallary/Gallary'
+import Dashboard from '@/components/dashboard/Dashboard'
 
 Vue.use(Router)
 
@@ -56,6 +57,14 @@ export default new Router({
       path: '/gallary',
       name: 'Gallary',
       component: Gallary,
+      meta: {
+        allowAnonymous: false
+      }
+    },
+    {
+      path: '/dashboard',
+      name: 'Dashboard',
+      component: Dashboard,
       meta: {
         allowAnonymous: false
       }
