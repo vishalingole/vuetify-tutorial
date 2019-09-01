@@ -7,6 +7,7 @@ import ForgotPassword from '@/components/login/ForgotPassword'
 import Profile from '@/components/profile/Profile'
 import Gallary from '@/components/gallary/Gallary'
 import Dashboard from '@/components/dashboard/Dashboard'
+import Search from '@/components/search/Search'
 
 Vue.use(Router)
 
@@ -65,6 +66,14 @@ export default new Router({
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard,
+      meta: {
+        allowAnonymous: false
+      }
+    },
+    {
+      path: '/search',
+      name: 'Search',
+      component: Search,
       meta: {
         allowAnonymous: false
       }
