@@ -1,12 +1,12 @@
 <template>
 	<v-container>
-		<v-breadcrumbs class="pageHeader shadow-lg p-3 mb-5">
+		<v-breadcrumbs class="mb-5 purple accent-6">
 			<template>
 				<h4>Gallary</h4>
 			</template>
 		</v-breadcrumbs>
 		<gallery :images="images" :index="index" @close="index = null"></gallery>
-		<v-card>
+		<v-card style="cursor:pointer" >
 			<v-tabs background-color="white" color="deep-purple accent-4" right>
 				<v-tab>instagram
 					<v-icon color="indigo" class="pl-2">fab fa-instagram</v-icon>
@@ -24,10 +24,22 @@
 										<v-img :src="image.images.low_resolution.url" @click="index = imageIndex" class="white--text" height="200px"></v-img>
 										<!-- <v-card-title><div>Top western road trips</div><span class="grey--text subtitle-1">1,000 miles of wonder</span></v-card-title> -->
 										<v-card-actions>
-											<v-btn text small color="orange">Share</v-btn>
-											<v-btn small text color="orange"><v-icon>favorite</v-icon></v-btn>
+											<v-btn text small outlined>Share</v-btn>
 											<v-btn text small>
-												<v-icon color="purple" class="mr-2">favorite</v-icon>{{image.likes.count}}</v-btn>
+												<v-icon color="red" class="mr-2">favorite</v-icon>
+                      </v-btn>
+                      <v-tooltip bottom>
+                        <template v-slot:activator="{ on }">
+                          <v-btn small text color="purple" v-on="on"><v-icon>mdi-eye</v-icon></v-btn>
+                        </template>
+                        <span>Remove this photo</span>
+                      </v-tooltip>
+                      <v-tooltip bottom>
+                        <template v-slot:activator="{ on }">
+                          <v-btn small text  v-on="on"><v-icon  class="mr-2" color="red">mdi-heart</v-icon>{{image.likes.count}}</v-btn>
+                        </template>
+                        <span>Likes</span>
+                      </v-tooltip>
 										</v-card-actions>
 										<v-expand-transition>
 											<div v-show="show">
