@@ -12,7 +12,6 @@ import VueCarousel from 'vue-carousel';
 // import Vuetify from 'vuetify/lib';
 
 
-// Vue.use(Vuetify)
 setupComponents(Vue)
 Vue.use(VueRouter)
 Vue.use(Vuex)
